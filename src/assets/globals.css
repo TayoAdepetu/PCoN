@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@tailwind utilities;
+
+@theme {
+  /* FONT */
+  --font-body: "Roboto", sans-serif;
+  --font-weight-medium: 400;
+  --font-weight-semibold: 400;
+  --font-weight-bold: 500;
+
+  --text-base: 14px;
+  --radius: 3px;
+
+  /* PRIMARY CI COLOR */
+  --color-primary-50: oklch(0.96 5% 217deg);
+  --color-primary-100: oklch(0.96 0.0187 222.16);
+  --color-primary-200: oklch(0.9 0.0464 222.6);
+  --color-primary-300: oklch(0.81 0.0884 225.39);
+  --color-primary-400: oklch(0.66 0.1408 235.64);
+  --color-primary-700: oklch(0.52 0.115456 237.6301);
+
+  /* NEUTRAL CI COLOR */
+  --color-neutral-100: oklch(0.96 0.0051 228.82);
+  --color-neutral-200: oklch(0.9 0.0108 286.18);
+  --color-neutral-300: oklch(0.75 0.0199 222.24);
+  --color-neutral-400: oklch(0.73 0.0301 285.63);
+  --color-neutral-800: oklch(0.35 0.0232 222.87);
+
+  /* WARNING CI COLOR */
+  --color-warning-200: oklch(93% 16% 89deg);
+  --color-warning-400: oklch(69% 35% 59deg);
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-Regular.ttf")
+    format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-Bold.ttf")
+    format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-Black.ttf")
+    format("truetype");
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/playfair-display/PlayfairDisplay-BlackItalic.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 196, 100%, 32%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 3px;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  :root {
+    --font-scale: 1;
+  }
+  html {
+    font-size: calc(14px * var(--font-scale));
+    /* overflow: hidden; */
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+.category_column.dragging {
+  opacity: 0.4;
+}
+
+.tui-image-editor-header-logo {
+  display: none;
+}
+
+/* Hide the top load and download buttons */
+.tui-image-editor-header-buttons {
+  display: none !important;
+}
+
