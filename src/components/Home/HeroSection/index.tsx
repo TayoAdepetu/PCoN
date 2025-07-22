@@ -1,10 +1,10 @@
 import { IoIosArrowForward } from "react-icons/io";
-import PrimaryButton from "../../../Common/Buttons/PrimaryButton";
-import SecondaryButton from "../../../Common/Buttons/SecondaryButton";
+import SecondaryButton from "../../Common/Buttons/SecondaryButton";
+import PrimaryButton from "../../Common/Buttons/PrimaryButton";
 import { MdArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
-import globeImg from "../../../../assets/img/landng-page/globe2000w.webp";
-import heroBg from "../../../../assets/img/landng-page/hero.webp";
+import globeImg from "../../../assets/img/landng-page/globe2000w.webp";
+import heroBg from "../../../assets/img/landng-page/hero.webp";
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
@@ -72,13 +72,13 @@ export default function HeroSection() {
           variants={item}
           className="flex flex-wrap justify-center gap-4 mb-24"
         >
-          <PrimaryButton className="flex items-center gap-2">
+          <PrimaryButton style="flex items-center gap-2">
             <Link to="/login" className="flex items-center gap-2">
               Request a Demo <IoIosArrowForward />
             </Link>
           </PrimaryButton>
 
-          <SecondaryButton className="flex items-center gap-2 border-white text-white hover:bg-[#80808070]">
+          <SecondaryButton style="flex items-center gap-2 border-white text-white hover:bg-[#80808070]">
             <Link to="/login" className="flex items-center gap-2">
               Our Products <MdArrowOutward />
             </Link>
