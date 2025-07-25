@@ -54,11 +54,12 @@ export default function HeroSection() {
           variants={item}
           className="max-w-[800px] text-3xl lg:text-5xl font-playfair font-semibold leading-relaxed lg:leading-[1.67] mt-28"
         >
-          Ekiti Innovation Hub
+          Progressive Christians of Nigeria (PCoN)
         </motion.h1>
 
         <motion.p variants={item} className="max-w-[800px]">
-          Connecting, nurturing, and empowering innovators, young leaders, and changemakers of Ekiti State origin.
+        Cross-party, Non-denominational Organization, Contributing To Public Policy Discussions 
+        & Formulation and Protecting Christian Rights in Nigeria.
         </motion.p>
 
         <motion.div

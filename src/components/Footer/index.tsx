@@ -12,9 +12,9 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto flex flex-wrap gap-5 [&>*]:flex-[1_0_230px] text-gray-400">
         <div className="flex flex-col gap-4">
           <img
-            src="/Ekiti-iHub-Logo.png"
-            alt="Ekiti Innovation Hub Limited Logo"
-            width={150}
+            src="/logo.png"
+            alt="Progressive Christians of Nigeria Logo"
+            width={100}
             height={100}
           />
           <p className="text-sm">© Ekiti Innovation Hub Limited 2025</p>
