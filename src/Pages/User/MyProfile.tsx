@@ -1,10 +1,10 @@
-import DndLayout from "../../components/Dnd/DndLayout";
+import HomeLayout from "../HomePages/HomeLayout";
 import Profile from "../../components/User/Profile";
 
 export default function DndPage() {
   return (
-    <DndLayout>
+    <HomeLayout>
       <Profile />
-    </DndLayout>
+    </HomeLayout>
   );
 }

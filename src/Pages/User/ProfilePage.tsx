@@ -1,10 +1,10 @@
-import DndLayout from "../../components/Dnd/DndLayout";
+import HomeLayout from "../HomePages/HomeLayout";
 import ProfileEdit from "../../components/User/ProfileEdit";
 
 export default function ProfilePage() {
   return (
-    <DndLayout>
+    <HomeLayout>
       <ProfileEdit />
-    </DndLayout>
+    </HomeLayout>
   );
 }
