@@ -16,12 +16,15 @@
   --radius: 3px;
 
   /* PRIMARY CI COLOR */
-  --color-primary-50: oklch(0.96 5% 217deg);
-  --color-primary-100: oklch(0.96 0.0187 222.16);
-  --color-primary-200: oklch(0.9 0.0464 222.6);
-  --color-primary-300: oklch(0.81 0.0884 225.39);
-  --color-primary-400: oklch(0.66 0.1408 235.64);
-  --color-primary-700: oklch(0.52 0.115456 237.6301);
+  --color-primary-50: oklch(0.97 0.04 142.54); /* very light */
+  --color-primary-100: oklch(0.9 0.08 142.54);
+  --color-primary-200: oklch(0.8 0.11 142.54);
+  --color-primary-300: oklch(0.7 0.14 142.54);
+  --color-primary-400: oklch(0.6 0.16 142.54); /* close to base */
+  --color-primary-500: oklch(0.55 0.17 142.54); /* base color (#228B22) */
+  --color-primary-600: oklch(0.45 0.15 142.54);
+  --color-primary-700: oklch(0.35 0.12 142.54);
+  --color-primary-800: oklch(0.25 0.08 142.54); /* darkest */
 
   /* NEUTRAL CI COLOR */
   --color-neutral-100: oklch(0.96 0.0051 228.82);
@@ -189,4 +192,3 @@ body {
 .tui-image-editor-header-buttons {
   display: none !important;
 }
-

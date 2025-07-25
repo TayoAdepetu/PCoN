@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { RiMenu3Line } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import { apis } from "../../utils/apis"; // Adjust the import path as needed
 
 
 export default function Header() {
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const TOKEN = useSelector((state: RootState) => state.auth.token);
   const dispatch = useDispatch();
@@ -19,12 +20,12 @@ export default function Header() {
   const forceLogout = () => {
     dispatch(authAction.logoutUser());
     localStorage.removeItem("authToken");
-  
+
     // Add slight delay to let Redux clear before navigation
     setTimeout(() => {
       navigate("/login");
     }, 100);
-  };  
+  };
 
   const handleLogout = async () => {
     // const TOKEN = localStorage.getItem("authToken"); // or get from Redux if that's your source
@@ -49,49 +50,61 @@ export default function Header() {
 
       console.log("Logout successful:", response.data);
       forceLogout();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Logout failed:", error);
 
       // Always force logout anyway, regardless of error type
       forceLogout();
 
-      // Optional: only show toast if not a typical unauthenticated case
-      if (error.response?.data?.message !== "Unauthenticated.") {
-        toast.error(error.response?.data?.message || "Something went wrong!");
-      }
+      const errorMessage =
+        error &&
+          typeof error === "object" &&
+          "response" in error &&
+          error.response &&
+          typeof error.response === "object" &&
+          "data" in error.response &&
+          error.response.data &&
+          typeof error.response.data === "object" &&
+          "message" in error.response.data
+          ? String(error.response.data.message)
+          : "Something went wrong!";
+
+      toast.error(errorMessage);
     }
   };
 
   return (
     <header>
-      <nav className="hidden md:block bg-white font-semibold py-4 px-8">
+      <nav className="hidden md:block bg-white font-semibold py-4 px-8 relative z-10">
         <div className="max-w-screen-lg mx-auto flex justify-between items-center">
-          <Link to="/">
+          <Link to="/" className="cursor-pointer">
             <img
-              src="/logo.svg"
-              alt="Sample Logo"
+              src="/Ekiti-iHub-Logo.png"
+              alt="Ekiti Innovation Hub Limited Logo"
               width={150}
-              height={64}
-              className="w-[40px]"
+              height={100}
             />
           </Link>
 
           <div className="flex gap-12 items-center text-gray-700">
             <Link
               to="/#about"
-              className="hover:text-primary transition duration-300"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#about" ? "text-primary-400" : "hover:text-primary-400"
+                }`}
             >
               About
             </Link>
             <Link
               to="/#impact"
-              className="hover:text-primary transition duration-300"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#impact" ? "text-primary-400" : "hover:text-primary-400"
+                }`}
             >
               Impact
             </Link>
             <Link
               to="/#service"
-              className="hover:text-primary transition duration-300"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#service" ? "text-primary-400" : "hover:text-primary-400"
+                }`}
             >
               Service
             </Link>
@@ -99,15 +112,16 @@ export default function Header() {
             {TOKEN ? (
               <div className="flex gap-12 items-center text-gray-700">
                 <Link
-                  to="/dashboard"
-                  className="border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
+                  to="#dashboard"
+                  className={`cursor-pointer border hover:bg-green-700 hover:text-white font-semibold py-3 px-6 transition duration-300 rounded-full ${location.hash === "#dashboard" ? "text-primary-400" : "hover:text-primary-400"
+                    }`}
                 >
                   Dashboard
                 </Link>
 
                 <button
                   onClick={handleLogout}
-                  className="border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
+                  className="cursor-pointer border hover:bg-green-700 hover:text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
                 >
                   Logout
                 </button>
@@ -115,9 +129,9 @@ export default function Header() {
 
             ) : (
               <Link
-                to="/login"
-                className="border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
-              >
+                to="#login"
+                className={`cursor-pointer border hover:bg-green-700 hover:text-white font-semibold py-3 px-6 transition duration-300 rounded-full ${location.hash === "#login" ? "text-primary-400" : "hover:text-primary-400"
+                  }`}              >
                 Login
               </Link>
             )
@@ -128,13 +142,12 @@ export default function Header() {
 
       <nav className="md:hidden fixed z-[100] w-full bg-white font-semibold py-4 px-8">
         <div className="max-w-screen-lg mx-auto flex justify-between items-center">
-          <Link to="/">
+          <Link to="/" className="cursor-pointer">
             <img
-              src="/logo.svg"
-              alt="Sample Logo"
+              src="/Ekiti-iHub-Logo.png"
+              alt="Ekiti Innovation Hub Limited Logo"
               width={150}
-              height={64}
-              className="w-[130px]"
+              height={80}
             />
           </Link>
 
@@ -153,19 +166,22 @@ export default function Header() {
       >
         <Link
           to="/#about"
-          className="hover:text-primary transition duration-300"
+          className={`cursor-pointer transition duration-300 ${location.hash === "#about" ? "text-primary-400" : "hover:text-primary-400"
+            }`}
         >
           About
         </Link>
         <Link
           to="/#impact"
-          className="hover:text-primary transition duration-300"
+          className={`cursor-pointer transition duration-300 ${location.hash === "#impact" ? "text-primary-400" : "hover:text-primary-400"
+            }`}
         >
           Impact
         </Link>
         <Link
           to="/#service"
-          className="hover:text-primary transition duration-300"
+          className={`cursor-pointer transition duration-300 ${location.hash === "#service" ? "text-primary-400" : "hover:text-primary-400"
+            }`}
         >
           Service
         </Link>
@@ -173,15 +189,16 @@ export default function Header() {
         {TOKEN ? (
           <div className="w-full top-[88px] flex flex-col gap-8">
             <Link
-              to="/dashboard"
-              className="self-start border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
+              to="#dashboard"
+              className={`cursor-pointer self-start border hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full ${location.hash === "#dashboard" ? "text-primary-400" : "hover:text-primary-400"
+                }`}
             >
               Dashboard
             </Link>
 
             <button
               onClick={handleLogout}
-              className="self-start border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
+              className="cursor-pointer self-start border hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
             >
               Logout
             </button>
@@ -190,8 +207,8 @@ export default function Header() {
         ) : (
           <Link
             to="/login"
-            className="self-start border border-primary bg-primary hover:bg-green-700 text-white font-semibold py-3 px-6 transition duration-300 rounded-full"
-          >
+            className={`cursor-pointer border hover:bg-green-700 hover:text-white font-semibold py-3 px-6 transition duration-300 rounded-full ${location.hash === "#login" ? "text-primary-400" : "hover:text-primary-400"
+              }`}           >
             Login
           </Link>
         )

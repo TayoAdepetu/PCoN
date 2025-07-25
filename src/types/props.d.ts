@@ -54,3 +54,10 @@ interface SolutionCardProps {
   title: string;
   description: string;
 }
+
+interface ImpactCardProps {
+  title: string;
+  description: React.ReactNode;
+  colors: { bg: string; fg: string };
+  image: string;
+}

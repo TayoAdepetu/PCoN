@@ -1,48 +1,62 @@
-import PrimaryButton from "../Common/Buttons/PrimaryButton";
+// import PrimaryButton from "../Common/Buttons/PrimaryButton";
+import { Link, useLocation } from "react-router-dom";
 import SecondaryButton from "../Common/Buttons/SecondaryButton";
-import { IoIosArrowForward } from "react-icons/io";
+// import { IoIosArrowForward } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
 
 export default function Footer() {
+  const location = useLocation();
+
   return (
     <footer className="bg-gray-100 py-12 px-4">
       <div className="max-w-screen-xl mx-auto flex flex-wrap gap-5 [&>*]:flex-[1_0_230px] text-gray-400">
         <div className="flex flex-col gap-4">
           <img
-            src="/logo.svg"
-            alt="Sample Logo"
-            width={40}
-            height={64}
+            src="/Ekiti-iHub-Logo.png"
+            alt="Ekiti Innovation Hub Limited Logo"
+            width={150}
+            height={100}
           />
-          <p className="text-sm">© FeedAfrica 2024. All rights reserved</p>
+          <p className="text-sm">© Ekiti Innovation Hub Limited 2025</p>
           <div className="flex flex-col gap-4 max-w-[200px]">
-            <PrimaryButton style="py-2 flex items-center justify-between gap-2">
-              Request a Demo <IoIosArrowForward />
-            </PrimaryButton>
-            <SecondaryButton style="py-2 flex items-center justify-between gap-2">
-              Our Products <MdArrowOutward />
+            {/* <PrimaryButton style="py-2 flex items-center justify-between gap-2">
+              Contact Representative <IoIosArrowForward />
+            </PrimaryButton> */}
+            <SecondaryButton style="py-2 flex items-center justify-between gap-2 hover:bg-primary-400">
+              <a
+                href="https://wa.link/m8mba8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Contact Visioneer <MdArrowOutward />
+              </a>
             </SecondaryButton>
           </div>
         </div>
         <div>
-          <h6 className="text-primary font-semibold mb-3">Quick Links</h6>
+          <h6 className="text-primary font-bold mb-3">QUICK LINKS</h6>
           <ul className="space-y-2">
             <li>
-              <a href="#">About</a>
+              <Link to="#about"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#about" ? "text-primary-400" : "hover:text-primary-400"
+              }`}>About</Link>
             </li>
             <li>
-              <a href="#">Mission</a>
-            </li>
+              <Link to="#mission"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#mission" ? "text-primary-400" : "hover:text-primary-400"
+              }`}>Mission</Link>
+            </li> 
             <li>
-              <a href="#">Services</a>
-            </li>
-            <li>
-              <a href="#">Testimonials</a>
-            </li>
+              <Link to="#impact"
+              className={`cursor-pointer transition duration-300 ${location.hash === "#impact" ? "text-primary-400" : "hover:text-primary-400"
+              }`}>Impact</Link>
+            </li>         
+            
           </ul>
         </div>
         <div>
-          <h6 className="text-primary font-semibold mb-3">Socials</h6>
+          <h6 className="text-primary font-bold mb-3">SOCIALS</h6>
           <ul className="space-y-2">
             <li>
               <a href="#">Facebook</a>
@@ -53,9 +67,9 @@ export default function Footer() {
             <li>
               <a href="#">Instagram</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Tiktok</a>
-            </li>
+            </li> */}
             <li>
               <a href="#">LinkedIn</a>
             </li>
@@ -64,7 +78,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        {/* <div>
           <h6 className="text-primary font-semibold mb-3">Legal</h6>
           <ul className="space-y-2">
             <li>
@@ -80,8 +94,8 @@ export default function Footer() {
               <a href="#">KYC/AML Policy</a>
             </li>
           </ul>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <h6 className="text-primary font-semibold mb-3">Resources</h6>
           <ul className="space-y-2">
             <li>
@@ -94,7 +108,7 @@ export default function Footer() {
               <a href="#">Newsletter</a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
       {/* <div className="container mx-auto mt-8 py-8 border-t border-t-gray-300 text-sm text-gray-400">
         <p>

@@ -1,11 +1,11 @@
-import { IoIosArrowForward } from "react-icons/io";
-import SecondaryButton from "../../Common/Buttons/SecondaryButton";
+// import { IoIosArrowForward } from "react-icons/io";
+// import SecondaryButton from "../../Common/Buttons/SecondaryButton";
 import PrimaryButton from "../../Common/Buttons/PrimaryButton";
 import { MdArrowOutward } from "react-icons/md";
 import { motion } from "framer-motion";
-import globeImg from "../../../assets/img/landng-page/globe2000w.webp";
-import heroBg from "../../../assets/img/landng-page/hero.webp";
-import { Link } from "react-router-dom";
+import globeImg from "../../../assets/img/landng-page/ekitilogo.png";
+import heroBg from "../../../assets/img/landng-page/New-Fajuyi-Memorial-Park.jpg";
+// import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const container = {
@@ -58,44 +58,47 @@ export default function HeroSection() {
           variants={item}
           className="max-w-[800px] text-3xl lg:text-5xl font-playfair font-semibold leading-relaxed lg:leading-[1.67] mt-28"
         >
-          Empowering African Farmers To <br />
-          <span className="text-primary-light">Feed Africa</span> Sustainably
+          Ekiti Innovation Hub
         </motion.h1>
 
         <motion.p variants={item} className="max-w-[800px]">
-          Revolutionizing agriculture with cutting-edge SaaS tools, innovative
-          hardware, and youth-driven education to secure Africa&apos;s food
-          future
+        Connecting, nurturing, and empowering innovators, young leaders, and changemakers of Ekiti State origin.
         </motion.p>
 
         <motion.div
           variants={item}
           className="flex flex-wrap justify-center gap-4 mb-24"
         >
-          <PrimaryButton style="flex items-center gap-2">
-            <Link to="/login" className="flex items-center gap-2">
-              Request a Demo <IoIosArrowForward />
-            </Link>
+          <PrimaryButton style="flex items-center gap-2 hover:bg-primary-400">
+            <a
+              href="https://wa.link/m8mba8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              Contact Visioneer <MdArrowOutward />
+            </a>
           </PrimaryButton>
 
-          <SecondaryButton style="flex items-center gap-2 border-white text-white hover:bg-[#80808070]">
+
+          {/* <SecondaryButton style="flex items-center gap-2 border-white text-white hover:bg-[#80808070]">
             <Link to="/login" className="flex items-center gap-2">
               Our Products <MdArrowOutward />
             </Link>
-          </SecondaryButton>
+          </SecondaryButton> */}
 
         </motion.div>
       </motion.main>
 
-      <div className="bg-white">
+      {/* <div className="bg-white">
         <img
           src={globeImg}
-          height={564}
-          width={1370}
+          height={300}
+          width={200}
           alt=""
-          className="mx-auto w-full max-w-[850px]"
+          className="mx-auto w-[50%]"
         />
-      </div>
+      </div> */}
     </>
   );
 }
