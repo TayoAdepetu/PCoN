@@ -1,5 +1,4 @@
 import { cn } from "../../../lib/utils";
-// import { useTranslation } from "react-i18next";
 
 interface SpinnerProps {
   className?: string;
@@ -7,7 +6,6 @@ interface SpinnerProps {
 }
 
 export default function Spinner({ className }: SpinnerProps) {
-  // const { t } = useTranslation();
   return (
     <span
       role="status"

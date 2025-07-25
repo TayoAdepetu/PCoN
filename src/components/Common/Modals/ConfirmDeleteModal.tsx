@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import GeneralModal from "./GeneralModal";
 import Spinner from "../Spinner/Spinner";
 import PrimaryButton from "../Buttons/PrimaryButton.tsx";
@@ -27,7 +26,6 @@ export default function ConfirmDeleteModal({
   data,
   confirmButtonText = "Confirm",
 }: ConfirmDeleteModalProps) {
-  const { t } = useTranslation();
   return (
     <GeneralModal
       id={id}
@@ -45,7 +43,7 @@ export default function ConfirmDeleteModal({
       footer={
         <div className="flex justify-between">
           <NeutralButton onClick={() => setShowModal(null)}>
-            {t("dnd.delete_category_modal.cancel")}
+            Cancel
           </NeutralButton>
 
           <PrimaryButton
@@ -55,7 +53,7 @@ export default function ConfirmDeleteModal({
             {loading ? (
               <Spinner />
             ) : confirmButtonText === "Confirm" ? (
-              t("dnd.delete_category_modal.confirm")
+             "Delete"
             ) : (
               confirmButtonText
             )}

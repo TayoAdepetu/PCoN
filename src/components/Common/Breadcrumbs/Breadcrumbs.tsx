@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 interface BreadcrumbItem {
   label?: string;
@@ -14,74 +13,28 @@ interface BreadcrumbsProps {
 
 // Configuration for breadcrumb paths
 const breadcrumbConfig: Record<string, BreadcrumbItem[]> = {
-  "/dashboard": [{ translationKey: "dashboard.title", path: "/dashboard" }],
+  "/dashboard": [{ translationKey: "dashboard", path: "/dashboard" }],
   "/dnd": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "dnd.title" },
-  ],
-  "/contacts": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "contacts.title" },
-  ],
-  "/contacts/:id": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "contacts.title", path: "/contacts" },
-    { translationKey: "contacts.details" },
-  ],
+    { translationKey: "dashboard", path: "/dashboard" },
+    { translationKey: "dnd" },
+  ],  
   "/projects": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "projects.title" },
+    { translationKey: "dashboard", path: "/dashboard" },
+    { translationKey: "projects" },
   ],
   "/projects/:id": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "projects.title", path: "/projects" },
-    { translationKey: "projects.project_details" },
-  ],
-  "/projects/templates": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "project_templates.title" },
-  ],
-  "/project-templates/:id": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "project_templates.title", path: "/project-templates" },
-    { translationKey: "project_templates.details" },
-  ],
-  "/documents": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "documents.title" },
-  ],
-  "/documents/:id": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "documents.title", path: "/documents" },
-    { translationKey: "documents.details" },
-  ],
-  "/documents/:id/edit": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "documents.title", path: "/documents" },
-    { translationKey: "documents.edit_document" },
-  ],
-  "/documents/templates": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "document_templates.title" },
-  ],
-  "/documents/templates/:id": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "document_templates.title", path: "/document-templates" },
-    { translationKey: "document_templates.details" },
+    { translationKey: "dashboard", path: "/dashboard" },
+    { translationKey: "projects", path: "/projects" },
+    { translationKey: "projects details" },
   ],
   "/profile": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "profile.title" },
-  ],
-  "/component-library": [
-    { translationKey: "dashboard.title", path: "/dashboard" },
-    { translationKey: "component_library.title" },
+    { translationKey: "dashboard", path: "/dashboard" },
+    { translationKey: "profile" },
   ],
 };
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className = "" }) => {
   const location = useLocation();
-  const { t } = useTranslation();
 
   // Get breadcrumb items for current path
   const getBreadcrumbItems = (): BreadcrumbItem[] => {
@@ -136,7 +89,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className = "" }) => {
       {breadcrumbItems.map((item, index) => {
         const isLast = index === breadcrumbItems.length - 1;
         const label = item.translationKey
-          ? t(item.translationKey)
+          ? item.translationKey
           : item.label || "";
 
         return (
