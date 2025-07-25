@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { FaKey, FaBars, FaTimes, FaBell, FaSignOutAlt, FaUser,FaUsers, FaBriefcase, FaSeedling, FaSuperpowers } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { apis } from "../../../../utils/apis"; // Adjust the import path as needed
-import axios from "axios";
+import { apis } from "../../../utils/apis"; // Adjust the import path as needed
+import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { type RootState } from "../../../../Store/rootReducer";
-import { authAction } from "../../../../Store/auth/authSlice"; // Import the action
+import { type RootState } from "../../../Store/rootReducer";
+import { authAction } from "../../../Store/auth/authSlice"; // Import the action
 
 export default function Sidebar({ unreadNotifications }: { unreadNotifications: number }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,13 +27,13 @@ export default function Sidebar({ unreadNotifications }: { unreadNotifications: 
 
   const handleLogout = async () => {
     // const TOKEN = localStorage.getItem("authToken"); // or get from Redux if that's your source
-
+  
     if (!TOKEN) {
       console.warn("No token found, forcing logout.");
       forceLogout();
       return;
     }
-
+  
     try {
       const response = await axios.post(
         apis.logout,
@@ -45,16 +45,17 @@ export default function Sidebar({ unreadNotifications }: { unreadNotifications: 
           },
         }
       );
-
+  
       console.log("Logout successful:", response.data);
       forceLogout();
-    } catch (error: any) {
+    } catch (err) {
+      const error = err as AxiosError<{ message?: string }>;
       console.error("Logout failed:", error);
-
-      // Always force logout anyway, regardless of error type
+  
+      // Always force logout anyway
       forceLogout();
-
-      // Optional: only show toast if not a typical unauthenticated case
+  
+      // Show toast for unexpected errors
       if (error.response?.data?.message !== "Unauthenticated.") {
         toast.error(error.response?.data?.message || "Something went wrong!");
       }

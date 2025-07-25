@@ -9,3 +9,12 @@ interface User {
     name: string | null;
   };
 }
+
+interface Notification{
+  id: number;
+  public_reference_id: string;
+  message: string;
+  created_at: string;
+  read: boolean;
+  title: string;
+}

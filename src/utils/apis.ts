@@ -12,6 +12,7 @@ export const apis = {
 
   resetPassword: `/api/forgot-password`,
   setNewPassword: `/api/reset-password`,
+  dashboardnotifications: (userRef: string)=> `/api/dashboard-notifications/${userRef}`,
 
 };
 

@@ -19,7 +19,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get(apis.dashboardnotifications(user_ref || ""), {
+        const response = await axios.get(apis.dashboardnotifications(user_ref!), {
           headers: {
             "Content-Type": "application/json",
             Authorization: TOKEN ? `Bearer ${TOKEN}` : "",

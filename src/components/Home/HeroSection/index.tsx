@@ -1,11 +1,7 @@
-// import { IoIosArrowForward } from "react-icons/io";
-// import SecondaryButton from "../../Common/Buttons/SecondaryButton";
 import PrimaryButton from "../../Common/Buttons/PrimaryButton";
 import { MdArrowOutward } from "react-icons/md";
-import { motion } from "framer-motion";
-import globeImg from "../../../assets/img/landng-page/ekitilogo.png";
+import { motion, Variants } from "framer-motion";
 import heroBg from "../../../assets/img/landng-page/New-Fajuyi-Memorial-Park.jpg";
-// import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const container = {
@@ -16,16 +12,16 @@ export default function HeroSection() {
         staggerChildren: 0.5,
       },
     },
-  };
+  } satisfies Variants;
 
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
     },
-  };
+  } satisfies Variants;
 
   return (
     <>
@@ -62,7 +58,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p variants={item} className="max-w-[800px]">
-        Connecting, nurturing, and empowering innovators, young leaders, and changemakers of Ekiti State origin.
+          Connecting, nurturing, and empowering innovators, young leaders, and changemakers of Ekiti State origin.
         </motion.p>
 
         <motion.div
@@ -79,26 +75,8 @@ export default function HeroSection() {
               Contact Visioneer <MdArrowOutward />
             </a>
           </PrimaryButton>
-
-
-          {/* <SecondaryButton style="flex items-center gap-2 border-white text-white hover:bg-[#80808070]">
-            <Link to="/login" className="flex items-center gap-2">
-              Our Products <MdArrowOutward />
-            </Link>
-          </SecondaryButton> */}
-
         </motion.div>
       </motion.main>
-
-      {/* <div className="bg-white">
-        <img
-          src={globeImg}
-          height={300}
-          width={200}
-          alt=""
-          className="mx-auto w-[50%]"
-        />
-      </div> */}
     </>
   );
 }

@@ -1,15 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type DashboardNotificationData = {
-  id: number;
-  title: string;
-  message: string;
-  read: boolean;
-  created_at: string;
-};
 
 type DashboardNotificationSliceState = {
-  dashboardnotifications: DashboardNotificationData[];
+  dashboardnotifications: Notification[];
 };
 
 const initialState: DashboardNotificationSliceState = {

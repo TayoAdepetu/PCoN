@@ -1,5 +1,5 @@
 import { ImpactCardProps } from "../../../types/props";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export default function ImpactCard({
@@ -17,9 +17,9 @@ export default function ImpactCard({
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.6, ease: "easeInOut" },
+      transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
     },
-  };
+  } satisfies Variants;
 
   return (
     <motion.div
@@ -27,7 +27,11 @@ export default function ImpactCard({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       ref={ref}
-      className={`bg-[${colors.bg}] border border-[${colors.fg}80] rounded-xl overflow-hidden h-full p-3 flex flex-col`}
+      className={`rounded-xl overflow-hidden h-full p-3 flex flex-col`}
+      style={{
+        backgroundColor: colors.bg,
+        border: `1px solid ${colors.fg}80`,
+      }}
     >
       <img
         src={image}
@@ -37,7 +41,7 @@ export default function ImpactCard({
         className="w-full h-48 object-cover rounded-md"
       />
       <div className="py-4 flex-grow">
-        <h3 className={`text-lg font-semibold mb-2 text-[${colors.fg}]`}>
+        <h3 className="text-lg font-semibold mb-2" style={{ color: colors.fg }}>
           {title}
         </h3>
         <p className="text-gray-400">{description}</p>
