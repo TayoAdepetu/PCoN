@@ -50,6 +50,8 @@ export default function HeroSection() {
           />
         </div>
 
+        <div className="mt-15 md:mt-0"></div>
+
         <motion.h1
           variants={item}
           className="max-w-[800px] text-3xl lg:text-5xl font-playfair font-semibold leading-relaxed lg:leading-[1.67] mt-28"
