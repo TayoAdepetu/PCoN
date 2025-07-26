@@ -144,10 +144,10 @@ export default function Header() {
         <div className="max-w-screen-lg mx-auto flex justify-between items-center">
           <Link to="/" className="cursor-pointer">
             <img
-              src="/Ekiti-iHub-Logo.png"
+              src="/logo.png"
               alt="Ekiti Innovation Hub Limited Logo"
-              width={150}
-              height={80}
+              width={70}
+              height={70}
             />
           </Link>
 

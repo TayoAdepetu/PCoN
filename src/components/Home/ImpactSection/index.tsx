@@ -3,34 +3,69 @@ import { motion, useInView, Variants } from "framer-motion";
 import ImpactCard from "./ImpactCard";
 import impactData from "./impactData";
 
+type Anime={
+  title: string;
+  description: string;
+  img: string;
+  reverse: boolean;
+}
+
+const sectionVariants = (reverse: boolean): Variants => ({
+  hidden: { opacity: 0.5, x: reverse ? 40 : -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
+  },
+});
+
+function ImpactItem({ title, description, img, reverse }: Anime) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  return (
+    <div className={`flex flex-wrap gap-12 ${reverse ? "flex-wrap-reverse" : ""}`}>
+      {!reverse && (
+        <motion.div
+          ref={ref}
+          variants={sectionVariants(false)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="flex-[1_0_280px] flex flex-col justify-center"
+        >
+          <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+          <p className="text-xl text-gray-400">{description}</p>
+        </motion.div>
+      )}
+
+      <img
+        src={img}
+        alt={title}
+        width={280}
+        height={150}
+        className="flex-[1_0_280px] rounded-xl object-cover"
+      />
+
+      {reverse && (
+        <motion.div
+          ref={ref}
+          variants={sectionVariants(true)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="flex-[1_0_280px] flex flex-col justify-center"
+        >
+          <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+          <p className="text-xl text-gray-400">{description}</p>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
 export default function ImpactSection() {
-  const youthsParaRef = useRef(null);
-  const farmersParaRef = useRef(null);
-
-  const youthsInView = useInView(youthsParaRef, { once: false });
-  const farmersInView = useInView(farmersParaRef, { once: false });
-
-  const youthsVariants: Variants = {
-    hidden: { opacity: 0.5, x: -40 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-    },
-  };
-
-  const farmersVariants: Variants = {
-    hidden: { opacity: 0.5, x: 40 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
-    },
-  };
-
   const sections = [
     {
-      title: " Christian Values",
+      title: "Christian Values",
       description:
         "Integrating Christian values into Nigerian politics and public institutions.",
       img: "/christian-values.webp",
@@ -90,62 +125,9 @@ export default function ImpactSection() {
       {/* Dynamic Sections */}
       <div className="max-w-screen-xl p-6 mx-auto">
         <div className="flex flex-col gap-20">
-          {sections.map((section, index) => {
-            const isReverse = section.reverse;
-            const ref = isReverse ? farmersParaRef : youthsParaRef;
-            const isInView = isReverse ? farmersInView : youthsInView;
-            const variants = isReverse ? farmersVariants : youthsVariants;
-
-            return (
-              <div
-                key={index}
-                className={`flex flex-wrap gap-12 ${isReverse ? "flex-wrap-reverse" : ""
-                  }`}
-              >
-                {!isReverse && (
-                  <motion.div
-                    ref={ref}
-                    variants={variants}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
-                    className="flex-[1_0_280px] flex flex-col justify-center"
-                  >
-                    <h2 className="text-2xl font-semibold mb-2">
-                      {section.title}
-                    </h2>
-                    <p className="text-xl text-gray-400">
-                      {section.description}
-                    </p>
-                  </motion.div>
-                )}
-
-                <img
-                  src={section.img}
-                  alt={section.title}
-                  width={280}
-                  height={150}
-                  className="flex-[1_0_280px] rounded-xl object-cover"
-                />
-
-                {isReverse && (
-                  <motion.div
-                    ref={ref}
-                    variants={variants}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
-                    className="flex-[1_0_280px] flex flex-col justify-center"
-                  >
-                    <h2 className="text-2xl font-semibold mb-2">
-                      {section.title}
-                    </h2>
-                    <p className="text-xl text-gray-400">
-                      {section.description}
-                    </p>
-                  </motion.div>
-                )}
-              </div>
-            );
-          })}
+          {sections.map((section, index) => (
+            <ImpactItem key={index} {...section} />
+          ))}
         </div>
       </div>
 
