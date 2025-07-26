@@ -58,8 +58,7 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p variants={item} className="max-w-[800px]">
-        Cross-party, Non-denominational Organization, Contributing To Public Policy Discussions 
-        & Formulation and Protecting Christian Rights in Nigeria.
+        Christ in Power. Unity in Purpose. Building a Future Anchored on Faith.
         </motion.p>
 
         <motion.div

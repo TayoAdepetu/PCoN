@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
-import missionImg from "../../../assets/img/landng-page/fajuyi-water.png";
-import visionImg from "../../../assets/img/landng-page/ikogosi-warm-spring.jpeg";
+import missionImg from "../../../assets/img/landng-page/leading-with-integrty.jpg";
+import visionImg from "../../../assets/img/landng-page/leading-integrity.jpeg";
 
 export default function OurPurposeSection() {
   const missionRef = useRef(null);
@@ -23,10 +23,9 @@ export default function OurPurposeSection() {
   const statements = [
     {
       title: "Mission Statement",
-      text: `To connect, nurture, and empower a community of innovators, 
-      technical & non-technical professionals, young leaders, and changemakers of Ekiti origin, equipping them with the skills, resources, 
-      connections, and opportunities to excel (locally and globally) 
-      and help drive digital & socio-economic growth of the State.`,
+      text: `To mentor, empower, and mobilize Christians 
+      to actively participate in politics and public service, 
+      while advocating for policies that reflect Christian values and foster national unity.`,
       img: missionImg,
       reverse: true,
       ref: missionRef,
@@ -36,9 +35,8 @@ export default function OurPurposeSection() {
     },
     {
       title: "Vision Statement",
-      text: `To become the foremost innovation and technical & non-technical talent hub in Ekiti State, 
-      driving socio-economic development through technology, creativity, public policy formulation, 
-      and collaboration.`,
+      text: `A Nigeria where Christians lead with integrity, unity, 
+      and wisdom to create a nation aligned with God’s will.`,
       img: visionImg,
       reverse: false,
       ref: visionRef,
@@ -51,6 +49,18 @@ export default function OurPurposeSection() {
   return (
     <section className="py-16">
       <div className="max-w-screen-xl mx-auto px-4">
+        <div className="my-8 mx-auto p-4 max-w-[700px]">
+          <h2 className="text-4xl text-center text-primary font-semibold font-playfair mb-4">
+            Who We Are
+          </h2>
+          <p className="text-center">
+            Progressive Christians of Nigeria (PCN) is a cross-party,
+            non-denominational movement of believers committed to shaping Nigeria’s future
+            through Christ-centered values, citizen education, political engagement,
+            and active participation in national transformation drive.
+          </p>
+        </div>
+
         <div className="flex flex-col gap-8">
           {statements.map((item, index) => (
             <div

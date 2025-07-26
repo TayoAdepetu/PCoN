@@ -17,7 +17,7 @@ export default function Footer() {
             width={100}
             height={100}
           />
-          <p className="text-sm">© Ekiti Innovation Hub Limited 2025</p>
+          <p className="text-sm">© Progressive Christians of Nigeria 2025</p>
           <div className="flex flex-col gap-4 max-w-[200px]">
             {/* <PrimaryButton style="py-2 flex items-center justify-between gap-2">
               Contact Representative <IoIosArrowForward />

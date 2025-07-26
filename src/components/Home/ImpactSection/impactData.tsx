@@ -1,56 +1,53 @@
 const impactData = [  
   {
-    title: "Ekiti Digital Talent Network",
+    title: "The Road to Effective Citizenship",
     description: (
       <>
-        A dedicated platform for connecting professionals (software engineers, designers, writers, etc.) 
-        with one another and with global opportunities.
+         Teaching Christians to engage constructively in national issues, advocacy, and policymaking.
       </>
     ),
-    image: "/talent-network.jpg",
+    image: "/good-citizen.png",
     colors: {
       bg: "#FFF7ED",
       fg: "#9A3412",
     },
   },
   {
-    title: "Innovation & Leadership Academy",
+    title: "Integrity of Marriage and Family",
     description:
-      "Training programs designed to build the next generation of leaders and tech-savvy professionals in Ekiti.",
-    image: "/leadership-academy.jpg",
+      "Promoting policies and programs that strengthen families as the foundation of society.",
+    image: "/marriage-integrity.webp",
     colors: { bg: "#FEF2F2", fg: "#991B1B" },
   },
   {
-    title: "Jobs & Opportunities Board",
+    title: "Christian Leadership Academy",
     description: (
       <>
-        A curated platform for job postings, internships, partnerships, and 
-        freelance projects targeted at our community.
+        Training believers to serve as ethical, Christ-centered leaders in politics and public service.
       </>
     ),
     colors: { bg: "#FFF9E6", fg: "#000" },
-    image: "/jobs-opportunities.jpg",
+    image: "/christian-leadership.png",
   },
   {
-    title: "Ekiti Innovators Meetup",
+    title: "Voter Education & Mobilization",
     description: (
       <>
-        Recurring events (such as Tech meetups, leadership bootcamps, webinars, hackathons, and workshops) 
-        for networking, collaboration, and showcasing homegrown talent.
+        Preparing Christians for active civic participation in elections and policy formulation.
       </>
     ),
     colors: { bg: "#E6F9E6", fg: "#000" },
-    image: "/innovators-meetup.jpg",
+    image: "/voter-education.png",
   },
   {
-    title: "Startup Incubator/Accelerator",
+    title: "Grassroots Community Projects",
     description: (
       <>
-        Support for entrepreneurs through mentorship, funding guidance, and workspace solutions.
+        Intervening in communities with development initiatives that reflect the compassion of Christ.
       </>
     ),
     colors: { bg: "#E6F9FF", fg: "#000" },
-    image: "/incubator-accelerator.png",
+    image: "/community-projects.jpg",
   },
 ];
 
